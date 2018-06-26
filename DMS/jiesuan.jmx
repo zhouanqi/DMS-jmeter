@@ -122,7 +122,7 @@ props.put(&quot;logintoken&quot;,bsh.args[1]);
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">5</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -191,7 +191,7 @@ vars.put(&quot;loginname&quot;,loginname);
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="对账单查询断言" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1036538737">detailList</stringProp>
             </collectionProp>
@@ -227,7 +227,19 @@ vars.put(&quot;loginname&quot;,loginname);
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
-        <hashTree/>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="新增月结对账断言&quot;errCode&quot;:&quot;S&quot;" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-36226583">&quot;errCode&quot;:&quot;S&quot;</stringProp>
+              <stringProp name="-36227017">&quot;errCode&quot;:&quot;E&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">34</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="月结对账保存" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -254,7 +266,7 @@ vars.put(&quot;loginname&quot;,loginname);
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug 新增月结对账" enabled="true">
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug 新增月结对账" enabled="false">
           <boolProp name="displayJMeterProperties">false</boolProp>
           <boolProp name="displayJMeterVariables">true</boolProp>
           <boolProp name="displaySystemProperties">false</boolProp>
@@ -265,7 +277,7 @@ vars.put(&quot;loginname&quot;,loginname);
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">5</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -328,7 +340,7 @@ vars.put(&quot;loginname&quot;,loginname);
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="对账单minlist断言" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="3322014">list</stringProp>
             </collectionProp>
@@ -379,6 +391,16 @@ vars.put(&quot;loginname&quot;,loginname);
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
           </JSONPostProcessor>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="对账明细断言detailList" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1036538737">detailList</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="如果（If）控制器" enabled="true">
           <stringProp name="IfController.condition">${detailList}==[]</stringProp>
@@ -418,6 +440,16 @@ vars.put(&quot;loginname&quot;,loginname);
               <stringProp name="JSONPostProcessor.defaultValues">mainId;serviceId;orderTypeId;dc;auditor;auditDate</stringProp>
             </JSONPostProcessor>
             <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="选择业务单断言detailList" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1036538737">detailList</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="月结对账新增业务数据" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -447,14 +479,20 @@ vars.put(&quot;loginname&quot;,loginname);
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree/>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="新增月结对账断言&quot;errCode&quot;:&quot;S&quot;" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-36226583">&quot;errCode&quot;:&quot;S&quot;</stringProp>
+                <stringProp name="-36227017">&quot;errCode&quot;:&quot;E&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">34</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
         </hashTree>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug 新增月结对账" enabled="true">
-          <boolProp name="displayJMeterProperties">false</boolProp>
-          <boolProp name="displayJMeterVariables">true</boolProp>
-          <boolProp name="displaySystemProperties">false</boolProp>
-        </DebugSampler>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="对账单minlist" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -481,7 +519,7 @@ vars.put(&quot;loginname&quot;,loginname);
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="对账单minlist断言" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="3322014">list</stringProp>
             </collectionProp>
@@ -532,6 +570,16 @@ vars.put(&quot;loginname&quot;,loginname);
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
           </JSONPostProcessor>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="对账明细断言detailList" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1036538737">detailList</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="月结对账保存" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -558,13 +606,31 @@ vars.put(&quot;loginname&quot;,loginname);
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="月结对账保存断言&quot;errCode&quot;:&quot;S&quot;" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-36226583">&quot;errCode&quot;:&quot;S&quot;</stringProp>
+              <stringProp name="-36227017">&quot;errCode&quot;:&quot;E&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">34</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug 月结对账保存" enabled="false">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="月结对账审核" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="月结对账审核" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">5</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -627,7 +693,14 @@ vars.put(&quot;loginname&quot;,loginname);
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON -list/id" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">list[0];id</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.list[0];$.list[0].id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1;1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">$.list[0];$.id</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="对账单minlist断言" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="3322014">list</stringProp>
             </collectionProp>
@@ -637,61 +710,149 @@ vars.put(&quot;loginname&quot;,loginname);
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON -list/id" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">list;id</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.list[0];$.list[0].id</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">1;1</stringProp>
-            <stringProp name="JSONPostProcessor.defaultValues">$.list[0];$.list[0].id</stringProp>
-            <boolProp name="JSONPostProcessor.compute_concat">true</boolProp>
-          </JSONPostProcessor>
-          <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="对账明细" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;params&quot;:{&quot;mainId&quot;:${id}},&quot;token&quot;:${logintoken},&quot;pageIndex&quot;:0,&quot;pageSize&quot;:10,&quot;sortField&quot;:&quot;&quot;,&quot;sortOrder&quot;:&quot;&quot;,&quot;page&quot;:{&quot;begin&quot;:0,&quot;length&quot;:10}}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">14.23.35.20</stringProp>
-          <stringProp name="HTTPSampler.port">6288</stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.settle.svr.getPJStatementDetailById.biz.ext</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if &quot;list&quot;!=&quot;&quot;" enabled="true">
+          <stringProp name="IfController.condition">&quot;${.list[0].id}&quot;!=&quot;&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON-detailList" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">detailList</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.detailList</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-          </JSONPostProcessor>
-          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="对账明细" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;params&quot;:{&quot;mainId&quot;:${id}},&quot;token&quot;:${logintoken},&quot;pageIndex&quot;:0,&quot;pageSize&quot;:10,&quot;sortField&quot;:&quot;&quot;,&quot;sortOrder&quot;:&quot;&quot;,&quot;page&quot;:{&quot;begin&quot;:0,&quot;length&quot;:10}}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">14.23.35.20</stringProp>
+            <stringProp name="HTTPSampler.port">6288</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.settle.svr.getPJStatementDetailById.biz.ext</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON-detailList" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">detailList</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.detailList</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="对账明细断言detailList" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1036538737">detailList</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="对账审核" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;stateMain&quot;:${list[0]},&quot;stateDetailAdd&quot;:[],&quot;stateDetailDelete&quot;:[],&quot;stateDetailList&quot;:${detailList},&quot;token&quot;:${logintoken}}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">14.23.35.20</stringProp>
+            <stringProp name="HTTPSampler.port">6288</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.settle.svr.auditPjStatement.biz.ext</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="对账审核断言;errCode: &quot;S&quot;/&quot;E&quot;" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-36226583">&quot;errCode&quot;:&quot;S&quot;</stringProp>
+                <stringProp name="-36227017">&quot;errCode&quot;:&quot;E&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">34</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
         </hashTree>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug 月结对账审核" enabled="true">
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug 月结对账审核" enabled="false">
           <boolProp name="displayJMeterProperties">false</boolProp>
           <boolProp name="displayJMeterVariables">true</boolProp>
           <boolProp name="displaySystemProperties">false</boolProp>
         </DebugSampler>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="对账审核" enabled="true">
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="应收应付结算" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="Content-Type" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie 管理器" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">String logintoken = props.get(&quot;logintoken&quot;);
+String loginname = props.get(&quot;loginname&quot;);
+//log.info(&quot;get token:---------------------------------------:&quot;);
+//log.info(logintoken);
+vars.put(&quot;logintoken&quot;,logintoken);
+vars.put(&quot;loginname&quot;,loginname);
+//log.info(&quot;get name:---------------------------------------:&quot;);
+//log.info(loginname);</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="综合结算minlist" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;stateMain&quot;:${list},&quot;stateDetailAdd&quot;:[],&quot;stateDetailDelete&quot;:[],&quot;stateDetailList&quot;:${detailList},&quot;token&quot;:${logintoken}}</stringProp>
+                <stringProp name="Argument.value">{&quot;params&quot;:{&quot;billServiceId&quot;:&quot;&quot;,&quot;sCreateDate&quot;:&quot;2018-06-01 00:00:00&quot;,&quot;eCreateDate&quot;:&quot;2018-07-01 00:00:00&quot;},&quot;token&quot;:${logintoken},&quot;pageIndex&quot;:0,&quot;pageSize&quot;:1000,&quot;sortField&quot;:&quot;&quot;,&quot;sortOrder&quot;:&quot;&quot;,&quot;page&quot;:{&quot;begin&quot;:0,&quot;length&quot;:1000}}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -700,7 +861,7 @@ vars.put(&quot;loginname&quot;,loginname);
           <stringProp name="HTTPSampler.port">6288</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.settle.svr.auditPjStatement.biz.ext</stringProp>
+          <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.settle.svr.queryRPAccountList.biz.ext</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -711,20 +872,186 @@ vars.put(&quot;loginname&quot;,loginname);
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="断言;errCode: &quot;S&quot;/&quot;E&quot;" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-36226583">&quot;errCode&quot;:&quot;S&quot;</stringProp>
-              <stringProp name="-36227017">&quot;errCode&quot;:&quot;E&quot;</stringProp>
+              <stringProp name="-1036538737">detailList</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">34</intProp>
+            <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON -detailList" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">detailList[0];id;billDc;settleStatus</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.detailList[0];$.detailList[0].id;$.detailList[0].billDc;$.detailList[0].settleStatus</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1;1;1;1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">$.detailList[0];$.detailList[0].id;$.detailList[0].billDC;$.detailList[0].settleStatus</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON -uyuuu" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">guestId;guestName;billMainId;billServiceId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.detailList[0].guestId;$.detailList[0].guestName;$.detailList[0].billMainId;$.detailList[0].billServiceId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1;1;1;1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">$.detailList[0].guestId;$.detailList[0].guestName;$.detailList[0].billMainId;$.detailList[0].billServiceId</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
         </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if &quot;$detailList[0].id &quot;!=&quot;&quot;" enabled="true">
+          <stringProp name="TestPlan.comments">有结算数据</stringProp>
+          <stringProp name="IfController.condition">&quot;${id}&quot;!=&quot;&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if &quot;settleStatus&quot;!=&quot;2&quot;" enabled="true">
+            <stringProp name="TestPlan.comments">未结算完成</stringProp>
+            <stringProp name="IfController.condition">&quot;${settleStatus}&quot;!=&quot;2&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if &quot;${billDc}&quot;==&quot;-1&quot;" enabled="true">
+              <stringProp name="TestPlan.comments">应付</stringProp>
+              <stringProp name="IfController.condition">&quot;${billDc}&quot;==&quot;-1&quot;</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="应付月结" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&quot;account&quot;:{&quot;guestId&quot;:${guestId},&quot;guestName&quot;:${guestName},&quot;itemQty&quot;:1,&quot;remark&quot;:&quot;&quot;,&quot;rpDc&quot;:-1,&quot;settleType&quot;:&quot;综合&quot;,&quot;voidAmt&quot;:0,&quot;trueCharOffAmt&quot;:0.1,&quot;charOffAmt&quot;:0.1},&quot;accountDetailList&quot;:[{&quot;billRpId&quot;:${id},&quot;billMainId&quot;:${billMainId},&quot;billServiceId&quot;:${billServiceId},&quot;billTypeId&quot;:202,&quot;rpDc&quot;:-1,&quot;charOffAmt&quot;:0.1,&quot;voidAmt&quot;:0}],&quot;accountTypeList&quot;:[{&quot;_id&quot;:7,&quot;_uid&quot;:7,&quot;_state&quot;:&quot;added&quot;,&quot;settAccountId&quot;:&quot;83&quot;,&quot;charOffAmt&quot;:&quot;0.1&quot;}],&quot;token&quot;:${logintoken}}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">14.23.35.20</stringProp>
+                <stringProp name="HTTPSampler.port">6288</stringProp>
+                <stringProp name="HTTPSampler.protocol">http</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.settle.rpsettle.rpAccountSettle.biz.ext</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON-detailList" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">detailList</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.detailList</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="应付断言&quot;errCode&quot;:&quot;S&quot;" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-36226583">&quot;errCode&quot;:&quot;S&quot;</stringProp>
+                    <stringProp name="-36227017">&quot;errCode&quot;:&quot;E&quot;</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">34</intProp>
+                </ResponseAssertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="应收月结" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;account&quot;:{&quot;guestId&quot;:${guestId},&quot;guestName&quot;:${guestName},&quot;itemQty&quot;:1,&quot;remark&quot;:&quot;&quot;,&quot;rpDc&quot;:1,&quot;settleType&quot;:&quot;综合&quot;,&quot;voidAmt&quot;:0,&quot;trueCharOffAmt&quot;:0.1,&quot;voidAmt&quot;:0},&quot;accountDetailList&quot;:[{&quot;billRpId&quot;:${id},&quot;billMainId&quot;:${billMainId},&quot;billServiceId&quot;:${billServiceId},&quot;billTypeId&quot;:101,&quot;rpDc&quot;:1,&quot;charOffAmt&quot;:0.1,&quot;voidAmt&quot;:0}],&quot;accountTypeList&quot;:[{&quot;_id&quot;:12,&quot;_uid&quot;:12,&quot;_state&quot;:&quot;added&quot;,&quot;settAccountId&quot;:&quot;83&quot;,&quot;charOffAmt&quot;:&quot;0.1&quot;}],&quot;token&quot;:${logintoken}}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">14.23.35.20</stringProp>
+              <stringProp name="HTTPSampler.port">6288</stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.settle.rpsettle.rpAccountSettle.biz.ext</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON-detailList" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">detailList</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.detailList</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="应收断言&quot;errCode&quot;:&quot;S&quot;" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-36226583">&quot;errCode&quot;:&quot;S&quot;</stringProp>
+                  <stringProp name="-36227017">&quot;errCode&quot;:&quot;E&quot;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">34</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="对账审核" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;stateMain&quot;:${list[0]},&quot;stateDetailAdd&quot;:[],&quot;stateDetailDelete&quot;:[],&quot;stateDetailList&quot;:${detailList},&quot;token&quot;:${logintoken}}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">14.23.35.20</stringProp>
+            <stringProp name="HTTPSampler.port">6288</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.settle.svr.auditPjStatement.biz.ext</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="断言;errCode: &quot;S&quot;/&quot;E&quot;" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-36226583">&quot;errCode&quot;:&quot;S&quot;</stringProp>
+                <stringProp name="-36227017">&quot;errCode&quot;:&quot;E&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">34</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug 应收应付" enabled="false">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>

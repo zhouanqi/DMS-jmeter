@@ -52,10 +52,10 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">2</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
@@ -223,13 +223,13 @@ vars.put(&quot;loginname&quot;,loginname);
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="断言保存是否成功" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-2065487014">&quot;errCode&quot;:&quot;S&quot;,&quot;errMsg&quot;:null</stringProp>
+              <stringProp name="-36226583">&quot;errCode&quot;:&quot;S&quot;</stringProp>
               <stringProp name="-36227017">&quot;errCode&quot;:&quot;E&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
+            <intProp name="Assertion.test_type">34</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -280,7 +280,7 @@ vars.put(&quot;loginname&quot;,loginname);
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">2</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">5</stringProp>
         <stringProp name="ThreadGroup.ramp_time">5</stringProp>
@@ -608,7 +608,7 @@ vars.put(&quot;loginname&quot;,loginname);
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="断言保存是否成功" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-2065487014">&quot;errCode&quot;:&quot;S&quot;,&quot;errMsg&quot;:null</stringProp>
+              <stringProp name="-1123024029">&quot;errCode&quot;:&quot;S&quot;,</stringProp>
               <stringProp name="-36227017">&quot;errCode&quot;:&quot;E&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
