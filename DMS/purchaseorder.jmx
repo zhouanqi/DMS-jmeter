@@ -86,8 +86,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">14.23.35.20</stringProp>
-          <stringProp name="HTTPSampler.port">6288</stringProp>
+          <stringProp name="HTTPSampler.domain"> </stringProp>
+          <stringProp name="HTTPSampler.port"> </stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">dms/coframe/auth/login/com.hsapi.system.auth.login.login.flow</stringProp>
@@ -1030,7 +1030,7 @@ log.info(bsh.args[0]);</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.invoicing.svr.queryPjSellOrderDetailList.biz.ex</stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

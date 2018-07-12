@@ -459,8 +459,8 @@ vars.put(&quot;loginname&quot;,loginname);
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">14.23.35.20</stringProp>
-            <stringProp name="HTTPSampler.port">6288</stringProp>
+            <stringProp name="HTTPSampler.domain"> </stringProp>
+            <stringProp name="HTTPSampler.port"> </stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.invoicing.crud.savePjPchsOrder.biz.ext</stringProp>
@@ -885,7 +885,7 @@ vars.put(&quot;loginname&quot;,loginname);
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.invoicing.svr.queryPjPchsOrderDetailList.biz.ext</stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -929,7 +929,7 @@ vars.put(&quot;loginname&quot;,loginname);
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.invoicing.crud.auditPjPchsOrder.biz.ext</stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1177,8 +1177,8 @@ vars.put(&quot;loginname&quot;,loginname);
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">14.23.35.20</stringProp>
-          <stringProp name="HTTPSampler.port">6288</stringProp>
+          <stringProp name="HTTPSampler.domain"> </stringProp>
+          <stringProp name="HTTPSampler.port"> </stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.invoicing.svr.queryPjPchsOrderDetailList.biz.ext</stringProp>
@@ -1227,8 +1227,8 @@ vars.put(&quot;loginname&quot;,loginname);
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">14.23.35.20</stringProp>
-          <stringProp name="HTTPSampler.port">6288</stringProp>
+          <stringProp name="HTTPSampler.domain"> </stringProp>
+          <stringProp name="HTTPSampler.port"> </stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/cloudPartApi/com.hsapi.cloud.part.invoicing.crud.savePjSellOrder.biz.ext</stringProp>
